@@ -1,5 +1,5 @@
 # AutoHelper
-I made a handy AHK script with a UI called AutoHelper that helps automate a number of routine processes in Vermintide 2:
+I made a handy AHK script with a UI, that helps automate a number of routine processes in Vermintide 2:
 
 - Salvage items of any rarity, including and red.
 - Opening chests.
