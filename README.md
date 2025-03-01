@@ -9,7 +9,7 @@ I made a handy AHK script with a UI, that helps automate a number of routine pro
 ![ezgif-250096fa3d7cfa](https://github.com/user-attachments/assets/eaaae441-8d9e-4e0f-915d-f6b94379fc34)
 ## Usage
 1) First, head over to this GitHub release listings page.
-In the list of assets, select the archive with the required language: English (ENG) / Russian (RUS)
+In the list of assets, select the archive with the required language: English (ENG) / Russian (RUS).
 Unpack the archive to any place on your disk and install the program AutoHotKey v1.1.
 
 2) Done, now you can run the AHK script and work in it.
