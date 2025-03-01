@@ -16,6 +16,7 @@ Unpack the archive to any place on your disk and install the program AutoHotKey 
 
 3) After running the script, name the preset and save it, then open Explorer, type %appdata% in the address bar and press Enter. 
 Go to the automatically created AutoHelper folder, where the presets file will be located. Next, from the downloaded archive, transfer the presets.ini file to the AutoHelper folder and confirm the replacement of the contents. _(This file contains pre-made presets for different screen resolutions)._
+![2025-02-26_21-42](https://github.com/user-attachments/assets/38d8055c-c3f2-451c-a515-b921ebecad1d)
 ## How it works
 I've written a separate guide in Steam on how to use it. Be sure to familiarize yourself with it so that you don't have any questions.
 
