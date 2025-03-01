@@ -18,3 +18,7 @@ Unpack the archive to any place on your disk and install the program AutoHotKey 
 Go to the automatically created AutoHelper folder, where the presets file will be located. Next, from the downloaded archive, transfer the presets.ini file to the AutoHelper folder and confirm the replacement of the contents. _(This file contains pre-made presets for different screen resolutions)._
 ## How it works
 I've written a separate guide in Steam on how to use it. Be sure to familiarize yourself with it so that you don't have any questions.
+
+[How to automate a number of routine processes in Vermintide 2](https://steamcommunity.com/sharedfiles/filedetails/?id=3434786311)
+
+[Как автоматизировать ряд рутиных процессов в Vermintide 2](https://steamcommunity.com/sharedfiles/filedetails/?id=3385048068)
