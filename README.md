@@ -16,6 +16,7 @@ I made a handy AHK script called AutoHelper, which helps automate a number of ro
 5. After running the script, name the preset and save it.
 6. Next, in the script folder, click on the shortcut %appdata% and go to the automatically created folder AutoHelper, the preset file will be located in it.
 7. In the script folder, move the file presets.ini to the folder created by AutoHelper and confirm replacing the contents. (This file contains pre-made presets for different screen resolutions)
+   
 ![2025-02-26_21-42](https://github.com/user-attachments/assets/38d8055c-c3f2-451c-a515-b921ebecad1d)
 ## How it works
 I've written a separate guide in Steam on how to use it. Be sure to familiarize yourself with it so that you don't have any questions.
