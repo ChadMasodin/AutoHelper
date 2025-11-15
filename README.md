@@ -5,7 +5,7 @@ I made a handy AHK script called AutoHelper, which helps automate a number of ro
 - Opening chests.
 - Upgrading weapons or amulet for essence in Athanor.
 - Reroll Properties for any item.
-- Other crafting mechanics.
+- Other crafting functions.
 
 ![ezgif-250096fa3d7cfa](https://github.com/user-attachments/assets/eaaae441-8d9e-4e0f-915d-f6b94379fc34)
 ## Usage
