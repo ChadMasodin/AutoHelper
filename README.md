@@ -22,3 +22,5 @@ I made a handy AHK script called AutoHelper, which helps automate a number of ro
 I've written a separate guide in Steam on how to use it. Be sure to familiarize yourself with it so that you don't have any questions.
 
 [How to automate a number of routine processes in Vermintide 2](https://steamcommunity.com/sharedfiles/filedetails/?id=3434786311)
+
+![Desktop2025 11 13-21 14 33 01_1_2-ezgif com-optimize](https://github.com/user-attachments/assets/1f464da1-b3ea-467c-8e97-4021259f372e)
