@@ -13,10 +13,10 @@ I made a handy AHK script called AutoHelper, which helps automate a number of ro
 1. First, go to the releases page [GitHub](https://github.com/ChadMasodin/AutoHelper/releases).
 2.  In the list of assets, select the archive with the word (ENG).
 3.  Unzip the archive to any location on your disk and install <ins>AutoHotKey v1.1</ins>.
-4.   one, you can now run the AHK script itself and work with it.
+4. Done, you can now run the AHK script itself and work with it.
    
 **Optional:**
-1.  ter running the script, name the preset and save it.
+1. After running the script, name the preset and save it.
 2. Next, in the script folder, click on the shortcut <ins>%appdata%</ins> and go to the automatically created folder <ins>AutoHelper</ins>, the preset file will be located in it.
 3. In the Presets folder, select the type of game interface you are using, such as FOR OLD UI. In this folder, move the <ins>presets.ini</ins> file to the newly created <ins>AutoHelper</ins> folder and confirm replacing the contents.
 *(This file contains pre-made presets for different screen resolutions)*
