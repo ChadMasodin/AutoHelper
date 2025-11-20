@@ -19,7 +19,7 @@ Description: Automated script for routine processes in Vermintide 2
 SetBatchLines -1 ; have the script run at maximum speed and never sleep
 ListLines Off ; a debugging option
 SetMouseDelay, -1 ; Убирает задержки между действиями мыши
-;CoordMode, Mouse, Client ; Определяет координаты мыши относительно клиентской области окна
+CoordMode, Mouse, Screen ; Определяет координаты мыши относительно всего рабочего стола
 SetTitleMatchMode, 2  ; Позволяет частичное совпадение заголовков окон при поиске
 SetControlDelay, -1 ;Убирает задержки при работе с элементами GUI
 DetectHiddenWindows, On  ; Позволяет обнаруживать скрытые окна
