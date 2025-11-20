@@ -19,7 +19,7 @@ Description: Automated script for routine processes in Vermintide 2
 SetBatchLines -1
 ListLines Off
 SetMouseDelay, -1
-;CoordMode, Mouse, Client
+CoordMode, Mouse, Screen ; Определяет координаты мыши относительно всего рабочего стола
 SetTitleMatchMode, 2
 SetControlDelay, -1
 DetectHiddenWindows, On
