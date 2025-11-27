@@ -24,7 +24,6 @@ Menu, Submenu1, Add, Stamina - Crit Power, menuHandler
 Menu, Submenu1, Add, Stamina - Push/Block Angle, menuHandler
 Menu, Submenu1, Add, Stamina - vs Chaos, menuHandler
 Menu, Submenu1, Add, Stamina - vs Skaven, menuHandler
-Menu, Submenu1, Add, vs Chaos - vs Skaven, menuHandler
 
 ; Ranged menu
 Menu, Submenu2, Add, Crit chance - Crit Power, menuHandler
@@ -47,7 +46,6 @@ Menu, Submenu2, Add, vs Chaos - vs Armoured, menuHandler
 Menu, Submenu2, Add, vs Chaos - vs Berserkers, menuHandler
 Menu, Submenu2, Add, vs Chaos - vs Infantry, menuHandler
 Menu, Submenu2, Add, vs Chaos - vs Monsters, menuHandler
-Menu, Submenu2, Add, vs Chaos - vs Skaven, menuHandler
 Menu, Submenu2, Add, vs Infantry - vs Berserkers, menuHandler
 Menu, Submenu2, Add, vs Monsters - vs Berserkers, menuHandler
 Menu, Submenu2, Add, vs Monsters - vs Infantry, menuHandler
