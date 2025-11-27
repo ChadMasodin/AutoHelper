@@ -63,22 +63,22 @@ global Target_Window := ""
 global LoopCount := ""
 global SelectedProperties := ""
 global savedPreset := ""
-global lastOCRText := ""
-global lastOCRTime := 0
+;global lastOCRText := ""
+;global lastOCRTime := 0
 
 ; ============================================================================
 ; GLOBAL VARIABLES - HOTKEYS
 ; ============================================================================
 
-global Stop_key := "F1"
-global Pause_key := "F2"
-global Reset_key := "F3"
-global OpenChests_key := "F5"
-global Salvage_items_key := "F7"
-global Salvage_red_items_key := "F9"
-global Reroll_Properties_key := "F11"
-global Atanor_key := "F12"
-global Close_script_key := "^ESC"
+global Stop_key := "Numpad1"
+global Pause_key := "Numpad2"
+global Reset_key := "Numpad3"
+global OpenChests_key := "Numpad4"
+global Salvage_items_key := "Numpad5"
+global Salvage_red_items_key := "Numpad6"
+global Reroll_Properties_key := "Numpad7"
+global Atanor_key := "Numpad8"
+global Close_script_key := "Numpad9"
 
 ; ============================================================================
 ; APPLICATION PATHS
@@ -248,9 +248,9 @@ CreateGUI:
     Gui, Add, Button, xs+15 yp+45 w170 h35 gSalvageRedItems, УТИЛИЗАЦИЯ`nКРАСНЫХ ПРЕДМЕТОВ
     Gui, Add, Button, x+10 w170 h35 gRerollProperties, ПЕРЕБРОСИТЬ`nСВОЙСТВА
     Gui, Add, Button, xs+40 yp+45 w300 h25 gShowInfo, <><><> ИНФА И ПРИВЯЗКА КЛАВИШ <><><>
-    Gui, Add, Button, xs+15 yp+35 w110 h35 gStope, СТОП
-    Gui, Add, Button, x+10 w110 h35 gPauza, ПАУЗА
-    Gui, Add, Button, x+10 w110 h35 gReset, ПЕРЕЗАПУСК
+    Gui, Add, Button, xs+15 yp+35 w170 h35 gStope, СТОП
+    ;Gui, Add, Button, x+10 w110 h35 gPauza, ПАУЗА
+    Gui, Add, Button, x+10 w170 h35 gReset, ПЕРЕЗАПУСК
     Gui, Font
 
     Gui, Show, w400 h700, %WINTITLE%
@@ -463,9 +463,9 @@ return
 SetOCRArea:
     Stop := 1
     GetOCRArea(OCR_X, OCR_Y, OCR_W, OCR_H)
-    ;if (OCR_X != "" && OCR_Y != "" && OCR_W != "" && OCR_H != "")
-        GuiControl,, OCR_Pos, %OCR_X% %OCR_Y% %OCR_W% %OCR_H%
+    GuiControl,, OCR_Pos, %OCR_X% %OCR_Y% %OCR_W% %OCR_H%
 return
+
 
 ;SetGreenDustArea:
     ;Stop := 1
@@ -537,6 +537,115 @@ SetWindow(Target_Window) {
 
 GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
 
+    ; First loop - wait for LMB press
+    Loop {
+        ; Check ESC press
+        if (GetKeyState("Esc", "P")) {
+            ToolTip
+            DestroySelectionGui()
+            X := Y := W := H := ""
+            return
+        }
+
+        ; Check LMB press to exit first loop
+        if (GetKeyState("LButton", "P")) {
+            break
+        }
+        MouseGetPos, currentX, currentY
+        ToolTip, Зажмите ЛКМ и выделите область свойств предмета`nНажмите ESC для отмены`n`nТекущие координаты:`nX1=%currentX% Y1=%currentY%
+    }
+
+    ; Get start coordinates after LMB press
+    MouseGetPos, startX, startY
+
+    ; Second loop - track area selection
+    Loop {
+        ; Check ESC press
+        if (GetKeyState("Esc", "P")) {
+            ToolTip
+            DestroySelectionGui()
+            X := Y := W := H := ""
+            return
+        }
+
+        ; Check if LMB is still held
+        if (!GetKeyState("LButton", "P")) {
+            break
+        }
+
+        ; Get current coordinates
+        MouseGetPos, currentX, currentY
+
+        ; Calculate area dimensions
+        width := Abs(currentX - startX)
+        height := Abs(currentY - startY)
+        minX := Min(startX, currentX)
+        minY := Min(startY, currentY)
+
+        ; Update selection rectangle visualization
+        DrawSelectionRect(minX, minY, width, height)
+
+        ; Show selection info with moving ToolTip
+        ToolTip, Выделение: %minX% %minY% [%width% x %height%]`n`nОтпустите ЛКМ для завершения`nНажмите ESC для отмены
+
+        Sleep, 10
+    }
+
+    ; Get end coordinates
+    MouseGetPos, endX, endY
+
+    ; Calculate final area
+    X := Min(startX, endX)
+    Y := Min(startY, endY)
+    W := Abs(startX - endX)
+    H := Abs(startY - endY)
+
+    ; Destroy visualization
+    DestroySelectionGui()
+
+       ; Проверяем, что область достаточно большая
+    if (W < 15 || H < 15) {
+        ToolTip, Область слишком мала! Пожалуйста установите область побольше
+        Sleep, 3000
+        ToolTip
+        X := Y := W := H := ""
+        return
+    }
+
+    ToolTip, Область свойств предмета установлена!`nX: %X% Y: %Y%`nW: %W% H: %H%
+    Sleep, DELAY_ANIMATION
+    ToolTip
+
+}
+
+DrawSelectionRect(X, Y, W, H) {
+    global hSelectionGui
+
+    ; Create or update selection window
+    if (hSelectionGui = "") {
+        Gui, SelectionOverlay: -Caption +AlwaysOnTop +ToolWindow +E0x20
+        Gui, SelectionOverlay: Color, 0066FF
+            ; Сохраняем ID окна в переменную, чтобы потом изменить прозрачность
+    Gui, SelectionOverlay: +LastFound
+    SelectionOverlayGui := WinExist()
+            ; Устанавливаем уровень прозрачности (0‑255). 120 ≈ ≈ 47 % непрозрачности.
+    WinSet, Transparent, 135, ahk_id %SelectionOverlayGui%
+        hSelectionGui := 1
+    }
+
+    ; Show the rectangle with transparency
+    Gui, SelectionOverlay: Show, x%X% y%Y% w%W% h%H% NoActivate, SelectionOverlay
+}
+
+DestroySelectionGui() {
+    global hSelectionGui
+    Gui, SelectionOverlay: Destroy
+    hSelectionGui := ""
+}
+
+/*
+GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
+
     ; Первый цикл - ожидание нажатия ЛКМ
     Loop {
         ; Проверка нажатия ESC
@@ -558,6 +667,7 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
 
     ; Получаем начальные координаты после нажатия ЛКМ
     MouseGetPos, startX, startY
+
 
     ; Второй цикл - отслеживание выделения области
     Loop {
@@ -597,10 +707,20 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
     W := Abs(startX - endX)
     H := Abs(startY - endY)
 
+       ; Проверяем, что область достаточно большая
+    if (W < 10 || H < 10) {
+        ToolTip, Area too small! Please select a larger area.
+        Sleep, 2000
+        ToolTip
+        X := Y := W := H := ""
+        return
+    }
+
     ToolTip, Область свойств предмета установлена!`nX: %X% Y: %Y%`nW: %W% H: %H%
     Sleep, DELAY_ANIMATION
     ToolTip
 }
+*/
 ; ============================================================================
 ; CONTROL FUNCTIONS
 ; ============================================================================
