@@ -5,47 +5,47 @@ Menu, Submenu1, Add, скорость атаки - к шансу на крит, 
 Menu, Submenu1, Add, скорость атаки - Затраты на блок, menuHandler
 Menu, Submenu1, Add, скорость атаки - к силе крит, menuHandler
 Menu, Submenu1, Add, скорость атаки - к выносливости , menuHandler
-Menu, Submenu1, Add, скорость атаки - против хаоса, menuHandler
+Menu, Submenu1, Add, скорость атаки - против ха, menuHandler
 Menu, Submenu1, Add, скорость атаки - против скав, menuHandler
 Menu, Submenu1, Add, Затраты на блок - к шансу на крит, menuHandler
 Menu, Submenu1, Add, Затраты на блок - к силе крит, menuHandler
 Menu, Submenu1, Add, Затраты на блок - к углу отталкивания, menuHandler
-Menu, Submenu1, Add, Затраты на блок - против хаоса, menuHandler
+Menu, Submenu1, Add, Затраты на блок - против ха, menuHandler
 Menu, Submenu1, Add, Затраты на блок - против скав, menuHandler
 Menu, Submenu1, Add, Затраты на блок - скорость атаки, menuHandler
 Menu, Submenu1, Add, к шансу на крит - к силе крит, menuHandler
-Menu, Submenu1, Add, к шансу на крит - против хаоса, menuHandler
+Menu, Submenu1, Add, к шансу на крит - против ха, menuHandler
 Menu, Submenu1, Add, к шансу на крит - против скав, menuHandler
-Menu, Submenu1, Add, к силе крит - против хаоса, menuHandler
+Menu, Submenu1, Add, к силе крит - против ха, menuHandler
 Menu, Submenu1, Add, к силе крит - против скав, menuHandler
 Menu, Submenu1, Add, к выносливости - Затраты на блок, menuHandler
 Menu, Submenu1, Add, к выносливости - к шансу на крит, menuHandler
 Menu, Submenu1, Add, к выносливости - к силе крит, menuHandler
 Menu, Submenu1, Add, к выносливости - к углу отталкивания, menuHandler
-Menu, Submenu1, Add, к выносливости - против хаоса, menuHandler
+Menu, Submenu1, Add, к выносливости - против ха, menuHandler
 Menu, Submenu1, Add, к выносливости - против скав, menuHandler
 
 ; Ranged menu
 Menu, Submenu2, Add, к шансу на крит - к силе крит, menuHandler
 Menu, Submenu2, Add, к шансу на крит - против бронированных, menuHandler
 Menu, Submenu2, Add, к шансу на крит - против берсерков, menuHandler
-Menu, Submenu2, Add, к шансу на крит - против хаоса, menuHandler
+Menu, Submenu2, Add, к шансу на крит - против ха, menuHandler
 Menu, Submenu2, Add, к шансу на крит - против пехоты, menuHandler
 Menu, Submenu2, Add, к шансу на крит - против монстров, menuHandler
 Menu, Submenu2, Add, к шансу на крит - против скав, menuHandler
 Menu, Submenu2, Add, к силе крит - против бронированных, menuHandler
 Menu, Submenu2, Add, к силе крит - против берсерков, menuHandler
-Menu, Submenu2, Add, к силе крит - против хаоса, menuHandler
+Menu, Submenu2, Add, к силе крит - против хa, menuHandler
 Menu, Submenu2, Add, к силе крит - против пехоты, menuHandler
 Menu, Submenu2, Add, к силе крит - против монстров, menuHandler
 Menu, Submenu2, Add, к силе крит - против скав, menuHandler
 Menu, Submenu2, Add, против бронированных - против берсерков, menuHandler
 Menu, Submenu2, Add, против бронированных - против пехоты, menuHandler
 Menu, Submenu2, Add, против бронированных - против монстров, menuHandler
-Menu, Submenu2, Add, против хаоса - против бронированных, menuHandler
-Menu, Submenu2, Add, против хаоса - против берсерков, menuHandler
-Menu, Submenu2, Add, против хаоса - против пехоты, menuHandler
-Menu, Submenu2, Add, против хаоса - против монстров, menuHandler
+Menu, Submenu2, Add, против хa - против бронированных, menuHandler
+Menu, Submenu2, Add, против хa - против берсерков, menuHandler
+Menu, Submenu2, Add, против хa - против пехоты, menuHandler
+Menu, Submenu2, Add, против хa - против монстров, menuHandler
 Menu, Submenu2, Add, против пехоты - против берсерков, menuHandler
 Menu, Submenu2, Add, против монстров - против берсерков, menuHandler
 Menu, Submenu2, Add, против монстров - против пехоты, menuHandler
@@ -65,24 +65,24 @@ Menu, Submenu3, Add, к выносливости - к углу отталкив�
 Menu, Submenu4, Add, скорость атаки - к силе крит, menuHandler
 Menu, Submenu4, Add, скорость атаки - против бронированных, menuHandler
 Menu, Submenu4, Add, скорость атаки - против берсерков, menuHandler
-Menu, Submenu4, Add, скорость атаки - против хаоса, menuHandler
+Menu, Submenu4, Add, скорость атаки - против хa, menuHandler
 Menu, Submenu4, Add, скорость атаки - против пехоты, menuHandler
 Menu, Submenu4, Add, скорость атаки - против монстров, menuHandler
 Menu, Submenu4, Add, скорость атаки - против скав, menuHandler
 Menu, Submenu4, Add, к силе крит - против бронированных, menuHandler
 Menu, Submenu4, Add, к силе крит - против берсерков, menuHandler
-Menu, Submenu4, Add, к силе крит - против хаоса, menuHandler
+Menu, Submenu4, Add, к силе крит - против хa, menuHandler
 Menu, Submenu4, Add, к силе крит - против пехоты, menuHandler
 Menu, Submenu4, Add, к силе крит - против монстров, menuHandler
 Menu, Submenu4, Add, к силе крит - против скав, menuHandler
 Menu, Submenu4, Add, против бронированных - против берсерков, menuHandler
 Menu, Submenu4, Add, против бронированных - против пехоты, menuHandler
 Menu, Submenu4, Add, против бронированных - против монстров, menuHandler
-Menu, Submenu4, Add, против хаоса - против бронированных, menuHandler
-Menu, Submenu4, Add, против хаоса - против берсерков, menuHandler
-Menu, Submenu4, Add, против хаоса - против пехоты, menuHandler
-Menu, Submenu4, Add, против хаоса - против монстров, menuHandler
-Menu, Submenu4, Add, против хаоса - против скав, menuHandler
+Menu, Submenu4, Add, против хa - против бронированных, menuHandler
+Menu, Submenu4, Add, против хa - против берсерков, menuHandler
+Menu, Submenu4, Add, против хa - против пехоты, menuHandler
+Menu, Submenu4, Add, против хa - против монстров, menuHandler
+Menu, Submenu4, Add, против хa - против скав, menuHandler
 Menu, Submenu4, Add, против пехоты - против берсерков, menuHandler
 Menu, Submenu4, Add, против монстров - против пехоты, menuHandler
 Menu, Submenu4, Add, против скав - против бронированных, menuHandler
