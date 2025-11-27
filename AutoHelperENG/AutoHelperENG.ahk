@@ -70,15 +70,15 @@ global savedPreset := ""
 ; GLOBAL VARIABLES - HOTKEYS
 ; ============================================================================
 
-global Stop_key := "F1"
-global Pause_key := "F2"
-global Reset_key := "F3"
-global OpenChests_key := "F5"
-global Salvage_items_key := "F7"
-global Salvage_red_items_key := "F9"
-global Reroll_Properties_key := "F11"
-global Atanor_key := "F12"
-global Close_script_key := "^ESC"
+global Stop_key := "Numpad1"
+global Pause_key := "Numpad2"
+global Reset_key := "Numpad3"
+global OpenChests_key := "Numpad4"
+global Salvage_items_key := "Numpad5"
+global Salvage_red_items_key := "Numpad6"
+global Reroll_Properties_key := "Numpad7"
+global Atanor_key := "Numpad8"
+global Close_script_key := "Numpad9"
 
 ; ============================================================================
 ; APPLICATION PATHS
@@ -244,9 +244,9 @@ CreateGUI:
     Gui, Add, Button, xs+15 yp+45 w170 h35 gSalvageRedItems, SALVAGE RED ITEMS
     Gui, Add, Button, x+10 w170 h35 gRerollProperties, REROLL PROPERTIES
     Gui, Add, Button, xs+40 yp+45 w300 h25 gShowInfo, <><><> HOTKEYS AND INFO  <><><>
-    Gui, Add, Button, xs+15 yp+35 w110 h35 gStope, STOP
-    Gui, Add, Button, x+10 w110 h35 gPauza, PAUSE
-    Gui, Add, Button, x+10 w110 h35 gReset, RESTART
+    Gui, Add, Button, xs+15 yp+35 w170 h35 gStope, STOP
+    ;Gui, Add, Button, x+10 w110 h35 gPauza, PAUSE
+    Gui, Add, Button, x+10 w170 h35 gReset, RESTART
     Gui, Font
 
     Gui, Show, w400 h700, %WINTITLE%
@@ -531,6 +531,7 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
         ; Check ESC press
         if (GetKeyState("Esc", "P")) {
             ToolTip
+            DestroySelectionGui()
             X := Y := W := H := ""
             return
         }
@@ -541,8 +542,6 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
         }
         MouseGetPos, currentX, currentY
         ToolTip, Hold LMB and select item properties area`nPress ESC to cancel`n`nCurrent coordinates:`nX1=%currentX% Y1=%currentY%
-
-        Sleep, 10
     }
 
     ; Get start coordinates after LMB press
@@ -552,6 +551,7 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
     Loop {
         ; Check ESC press
         if (GetKeyState("Esc", "P")) {
+            DestroySelectionGui()
             ToolTip
             X := Y := W := H := ""
             return
@@ -571,6 +571,9 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
         minX := Min(startX, currentX)
         minY := Min(startY, currentY)
 
+        ; Update selection rectangle visualization
+        DrawSelectionRect(minX, minY, width, height)
+
         ; Show selection info with moving ToolTip
         ToolTip, Selection: %minX% %minY% [%width% x %height%]`n`nRelease LMB to finish`nPress ESC to cancel
 
@@ -586,9 +589,45 @@ GetOCRArea(ByRef X, ByRef Y, ByRef W, ByRef H) {
     W := Abs(startX - endX)
     H := Abs(startY - endY)
 
+        ; Destroy visualization
+    DestroySelectionGui()
+
+    if (W < 15 || H < 15) {
+        ToolTip, The area is too small! Please set a larger area
+        Sleep, 3000
+        ToolTip
+        X := Y := W := H := ""
+        return
+    }
+
     ToolTip, Item properties area set!`nX: %X% Y: %Y%`nW: %W% H: %H%
     Sleep, DELAY_ANIMATION
     ToolTip
+}
+
+DrawSelectionRect(X, Y, W, H) {
+    global hSelectionGui
+
+    ; Create or update selection window
+    if (hSelectionGui = "") {
+        Gui, SelectionOverlay: -Caption +AlwaysOnTop +ToolWindow +E0x20
+        Gui, SelectionOverlay: Color, 0066FF
+            ; Сохраняем ID окна в переменную, чтобы потом изменить прозрачность
+    Gui, SelectionOverlay: +LastFound
+    SelectionOverlayGui := WinExist()
+            ; Устанавливаем уровень прозрачности (0‑255). 120 ≈ ≈ 47 % непрозрачности.
+    WinSet, Transparent, 135, ahk_id %SelectionOverlayGui%
+        hSelectionGui := 1
+    }
+
+    ; Show the rectangle with transparency
+    Gui, SelectionOverlay: Show, x%X% y%Y% w%W% h%H% NoActivate, SelectionOverlay
+}
+
+DestroySelectionGui() {
+    global hSelectionGui
+    Gui, SelectionOverlay: Destroy
+    hSelectionGui := ""
 }
 
 /*
