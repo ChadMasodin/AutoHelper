@@ -8,7 +8,7 @@ I made a handy AHK script called AutoHelper, which helps automate a number of ro
 - Other crafting functions.
 
 ![ezgif-250096fa3d7cfa](https://github.com/user-attachments/assets/eaaae441-8d9e-4e0f-915d-f6b94379fc34)
-## Usage
+## Installation
 **Necessarily:**
 1. First, go to the releases page [GitHub](https://github.com/ChadMasodin/AutoHelper/releases).
 2.  In the list of assets, select the archive with the word (ENG).
